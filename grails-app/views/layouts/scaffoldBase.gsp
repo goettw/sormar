@@ -16,24 +16,16 @@
 <link rel="apple-touch-icon" href="${resource(dir: 'images', file: 'apple-touch-icon.png')}">
 <link rel="apple-touch-icon" sizes="114x114" href="${resource(dir: 'images', file: 'apple-touch-icon-retina.png')}">
 <link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}" type="text/css">
-<link rel="stylesheet" href="${resource(dir: 'css', file: 'mobile.css')}" type="text/css">
+
 <g:layoutHead />
 <g:javascript library="application" />
 <r:layoutResources />
 </head>
 <body>
 	<div class="container">
-		<div class="row">
-			<div class="col-md-12" align="center">
-				<div id="sormerLogo" role="banner">
-					<a href="http://www.sormar.com"><img src="${resource(dir: 'images', file: 'sormar_logo.png')}" alt="Sormer" /></a>
-				<p><b>So</b>ftware <b>R</b>esource <b>Ma</b>nage<b>r</b>: Find all you need to create great software!</p>
-				</div>
-			</div>
-		</div>
-
+	
 		<div class="row" >
-			<div class="col-md-12" align="center">
+			<div class="col-md-12">
 				<g:layoutBody />
 			</div>
 			<div class="row" style="height:280px">

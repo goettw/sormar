@@ -1,98 +1,37 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta name="layout" content="main"/>
-		
-		<title>Welcome to Sormar</title>
-		<style type="text/css" media="screen">
-			#status {
-				background-color: #eee;
-				border: .2em solid #fff;
-				margin: 2em 2em 1em;
-				padding: 1em;
-				width: 12em;
-				float: left;
-				-moz-box-shadow: 0px 0px 1.25em #ccc;
-				-webkit-box-shadow: 0px 0px 1.25em #ccc;
-				box-shadow: 0px 0px 1.25em #ccc;
-				-moz-border-radius: 0.6em;
-				-webkit-border-radius: 0.6em;
-				border-radius: 0.6em;
-			}
+<head>
+<meta name="layout" content="main" />
 
-			.ie6 #status {
-				display: inline; /* float double margin fix http://www.positioniseverything.net/explorer/doubled-margin.html */
-			}
+<title>Welcome to Sormar</title>
 
-			#status ul {
-				font-size: 0.9em;
-				list-style-type: none;
-				margin-bottom: 0.6em;
-				padding: 0;
-			}
+</head>
+<body>
 
-			#status li {
-				line-height: 1.3;
-			}
 
-			#status h1 {
-				text-transform: uppercase;
-				font-size: 1.1em;
-				margin: 0 0 0.3em;
-			}
+	<div>
 
-			#page-body {
-				margin: 2em 1em 1.25em 18em;
-			}
+<div class="row" style="height:80px">
+</div>
 
-			h2 {
-				margin-top: 1em;
-				margin-bottom: 0.3em;
-				font-size: 1em;
-			}
 
-			p {
-				line-height: 1.5;
-				margin: 0.25em 0;
-			}
 
-			#controller-list ul {
-				list-style-position: inside;
-			}
-
-			#controller-list li {
-				line-height: 1.3;
-				list-style-position: inside;
-				margin: 0.25em 0;
-			}
-
-			@media screen and (max-width: 480px) {
-				#status {
-					display: none;
-				}
-
-				#page-body {
-					margin: 0 1em 1em;
-				}
-
-				#page-body h1 {
-					margin-top: 0;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<a href="#page-body" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		
-		<div id="page-body" role="main">
-			<h1><b>So</b>ftware <b>R</b>esource <b>Ma</b>nage<b>r</b></h1>
-			<p> 
-			Do you want to create new digital products ? 
-			Sormar manages all the resources you need !</p>
-
-			<div id="controller-list" role="navigation">
-				<img src="${resource(dir: 'images', file: 'Pictograms.jpg')}" width="80%"/>
+		<div class="row">
+			<div class="col-md-12">
+				<g:link controller="product"><img src="${resource(dir: 'images', file: 'products.png')}" /></g:link>
 			</div>
 		</div>
-	</body>
+		<div class="row" style="height:80px"></div>
+		<div class="row">
+		<div class="col-md-3"></div>
+			<div class="col-md-3">
+				<g:link controller="asset"><img src="${resource(dir: 'images', file: 'assets.png')}" /></g:link>
+			</div>
+			<div class="col-md-3">
+				<g:link controller="expert"><img src="${resource(dir: 'images', file: 'experts.png')}" /></g:link>
+			</div>
+			<div class="col-md-3"></div>
+		</div>
+	</div>
+</body>
 </html>

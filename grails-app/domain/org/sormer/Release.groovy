@@ -4,7 +4,7 @@ class Release {
     String name
     static belongsTo = Product
 
-    Person releaseManager
+    Expert releaseManager
     
     static constraints = {
 	releaseManager nullable:true 
