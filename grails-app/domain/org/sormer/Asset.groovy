@@ -4,6 +4,7 @@ class Asset {
     String name
     String link
     String type
+    static mapWith = "mongo"
     
     static constraints = {
 	name unique:true

@@ -8,8 +8,8 @@ class Product {
     Expert productManager
     static hasMany = [releases: Release]
     static mappedBy = [release : '']
-    
-
+    static mapWith = "mongo"
+    def encodeAsHTML() {return name}
     
     static constraints = {
 	name unique:true 

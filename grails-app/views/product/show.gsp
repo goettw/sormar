@@ -60,7 +60,7 @@
 			<label class="col-sm-2 control-label"><g:message code="product.productManager.label" default="Product Manager" /></label>
 					<div class="col-sm-10">
 					
-						<p class="form-control-static" aria-labelledby="productManager-label"><g:link controller="expert" action="show" id="${productInstance?.productManager?.id}">${productInstance?.productManager?.encodeAsHTML()}</g:link></p>
+						<p class="form-control-static" aria-labelledby="productManager-label"><g:link controller="expert" action="show" id="${productInstance?.productManager?.id}">${productInstance?.productManager?.username}</g:link></p>
 					
 					    </div>
 				</div>

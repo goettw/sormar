@@ -1,8 +1,14 @@
 ---
 applications:
 - name: sormar
-  memory: 512M
+  memory: 1G
   instances: 1
-  host: sormar
-  domain: de.a9sapp.eu
+  host: www
+  domain: sormar.com
   path: target/sormar-0.1.war
+  services:
+    mongodb-de59d:
+      label: mongodb
+      provider: core
+      version: '2.0'
+      plan: '100'
