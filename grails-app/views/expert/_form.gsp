@@ -2,21 +2,12 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: expertInstance, field: 'username', 'error')} ">
-	<label for="username">
-		<g:message code="expert.username.label" default="Username" />
-		
-	</label>
-	<g:textField name="username" value="${expertInstance?.username}"class="form-control"/>
-
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: expertInstance, field: 'firstName', 'error')} ">
 	<label for="firstName">
 		<g:message code="expert.firstName.label" default="First Name" />
 		
 	</label>
-	<g:textField name="firstName" value="${expertInstance?.firstName}"class="form-control"/>
+	<g:textField name="firstName" value="${expertInstance?.firstName}" class="form-control"/>
 
 </div>
 
@@ -25,7 +16,7 @@
 		<g:message code="expert.lastName.label" default="Last Name" />
 		
 	</label>
-	<g:textField name="lastName" value="${expertInstance?.lastName}"class="form-control"/>
+	<g:textField name="lastName" value="${expertInstance?.lastName}" class="form-control"/>
 
 </div>
 
@@ -62,6 +53,15 @@
 </li>
 </ul>
 
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: expertInstance, field: 'username', 'error')} ">
+	<label for="username">
+		<g:message code="expert.username.label" default="Username" />
+		
+	</label>
+	<g:textField name="username" value="${expertInstance?.username}" class="form-control"/>
 
 </div>
 

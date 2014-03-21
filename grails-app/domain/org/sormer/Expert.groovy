@@ -9,6 +9,5 @@ class Expert {
     static mappedBy = [managesProducts : 'productManager', managesReleases : 'releaseManager']
     static constraints = {
 	username unique:true 
-	
     }
 }

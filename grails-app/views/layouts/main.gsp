@@ -12,7 +12,7 @@
 <r:require modules="bootstrap" />
 <title><g:layoutTitle default="Grails" /></title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="shortcut icon" href="${resource(dir: 'images', file: 'sormar_logo.ico')}" type="image/x-icon">
+<link rel="shortcut icon" href="${resource(dir: 'images', file: 'favicon.ico')}" type="image/x-icon">
 <link rel="apple-touch-icon" href="${resource(dir: 'images', file: 'apple-touch-icon.png')}">
 <link rel="apple-touch-icon" sizes="114x114" href="${resource(dir: 'images', file: 'apple-touch-icon-retina.png')}">
 <link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}" type="text/css">
@@ -26,8 +26,8 @@
 		<div class="row">
 			<div class="col-md-12" align="center">
 				<div id="sormerLogo" role="banner">
-					<a href="http://www.sormar.com"><img src="${resource(dir: 'images', file: 'sormar_logo.png')}" alt="Sormer" /></a>
-				<p><b>So</b>ftware <b>R</b>esource <b>Ma</b>nage<b>r</b>: Find all you need to create great software!</p>
+					<a href="http://www.sormar.com"><img src="${resource(dir: 'images', file: 'software-fabric.png')}" alt="Sormer" /></a>
+				<p>Everything you need to create great software!</p>
 				</div>
 			</div>
 		</div>

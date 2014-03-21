@@ -14,7 +14,7 @@
 		<div class="navbar navbar-default" role="navigation">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<a href="${createLink(uri: '/')}" class="navbar-brand" style="padding: 2px"><img src="${resource(dir: 'images', file: 'sormar_logo.png')}"
+					<a href="${createLink(uri: '/')}" class="navbar-brand" style="padding: 2px"><img src="${resource(dir: 'images', file: 'logo-mid.png')}"
 						alt="Sormer" width="80%" /></a>
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
 						<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
@@ -27,7 +27,7 @@
 							</g:link></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li class="active"><g:link controller="product">Products</g:link></li>
+						<li><g:link controller="product">Products</g:link></li>
 						<li><g:link controller="asset">Assets</g:link></li>
 						<li><g:link controller="expert">Experts</g:link></li>
 					</ul>
@@ -60,18 +60,7 @@
 			<label class="col-sm-2 control-label"><g:message code="product.productManager.label" default="Product Manager" /></label>
 					<div class="col-sm-10">
 					
-						<p class="form-control-static" aria-labelledby="productManager-label"><g:link controller="expert" action="show" id="${productInstance?.productManager?.id}">${productInstance?.productManager?.username}</g:link></p>
-					
-					    </div>
-				</div>
-				</g:if>
-			
-				<g:if test="${productInstance?.url}">
-				  <div class="form-group">
-			<label class="col-sm-2 control-label"><g:message code="product.url.label" default="Url" /></label>
-					<div class="col-sm-10">
-					
-						<p class="form-control-static" aria-labelledby="url-label"><g:fieldValue bean="${productInstance}" field="url"/></p>
+						<p class="form-control-static" aria-labelledby="productManager-label"><g:link controller="expert" action="show" id="${productInstance?.productManager?.id}">${productInstance?.productManager?.encodeAsHTML()}</g:link></p>
 					
 					    </div>
 				</div>
@@ -85,6 +74,17 @@
 						<g:each in="${productInstance.releases}" var="r">
 						<p class="form-control-static" aria-labelledby="releases-label"><g:link controller="release" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></p>
 						</g:each>
+					
+					    </div>
+				</div>
+				</g:if>
+			
+				<g:if test="${productInstance?.url}">
+				  <div class="form-group">
+			<label class="col-sm-2 control-label"><g:message code="product.url.label" default="Url" /></label>
+					<div class="col-sm-10">
+					
+						<p class="form-control-static" aria-labelledby="url-label"><g:fieldValue bean="${productInstance}" field="url"/></p>
 					
 					    </div>
 				</div>

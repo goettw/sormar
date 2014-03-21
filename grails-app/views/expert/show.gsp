@@ -14,7 +14,7 @@
 		<div class="navbar navbar-default" role="navigation">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<a href="${createLink(uri: '/')}" class="navbar-brand" style="padding: 2px"><img src="${resource(dir: 'images', file: 'sormar_logo.png')}"
+					<a href="${createLink(uri: '/')}" class="navbar-brand" style="padding: 2px"><img src="${resource(dir: 'images', file: 'logo-mid.png')}"
 						alt="Sormer" width="80%" /></a>
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
 						<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
@@ -29,7 +29,7 @@
 					<ul class="nav navbar-nav navbar-right">
 						<li><g:link controller="product">Products</g:link></li>
 						<li><g:link controller="asset">Assets</g:link></li>
-						<li class="active"><g:link controller="expert">Experts</g:link></li>
+						<li><g:link controller="expert">Experts</g:link></li>
 					</ul>
 				</div>
 			</div>
@@ -43,17 +43,6 @@
 			<div class="message" role="status">${flash.message}</div>
 		</g:if>
 		<form class="form-horizontal" role="form">
-			
-				<g:if test="${expertInstance?.username}">
-				  <div class="form-group">
-			<label class="col-sm-2 control-label"><g:message code="expert.username.label" default="Username" /></label>
-					<div class="col-sm-10">
-					
-						<p class="form-control-static" aria-labelledby="username-label"><g:fieldValue bean="${expertInstance}" field="username"/></p>
-					
-					    </div>
-				</div>
-				</g:if>
 			
 				<g:if test="${expertInstance?.firstName}">
 				  <div class="form-group">
@@ -98,6 +87,17 @@
 						<g:each in="${expertInstance.managesReleases}" var="m">
 						<p class="form-control-static" aria-labelledby="managesReleases-label"><g:link controller="release" action="show" id="${m.id}">${m?.encodeAsHTML()}</g:link></p>
 						</g:each>
+					
+					    </div>
+				</div>
+				</g:if>
+			
+				<g:if test="${expertInstance?.username}">
+				  <div class="form-group">
+			<label class="col-sm-2 control-label"><g:message code="expert.username.label" default="Username" /></label>
+					<div class="col-sm-10">
+					
+						<p class="form-control-static" aria-labelledby="username-label"><g:fieldValue bean="${expertInstance}" field="username"/></p>
 					
 					    </div>
 				</div>

@@ -28,11 +28,13 @@
 	}
 
 private renderFieldForProperty(p, owningClass, prefix = "") {
-	boolean hasHibernate = pluginManager?.hasGrailsPlugin('hibernate') || pluginManager?.hasGrailsPlugin('hibernate4')
+	boolean hasHibernate = true //pluginManager?.hasGrailsPlugin('hibernate') || pluginManager?.hasGrailsPlugin('hibernate4')
 	boolean display = true
 	boolean required = false
+
 	if (hasHibernate) {
-		cp = owningClass.constrainedProperties[p.name]
+		cp = owningClass.constrainedProperties[]
+ 
 		display = (cp ? cp.display : true)
 		required = (cp ? !(cp.propertyType in [boolean, Boolean]) && !cp.nullable && (cp.propertyType != String || !cp.blank) : false)
 	}

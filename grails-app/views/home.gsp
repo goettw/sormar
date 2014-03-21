@@ -3,7 +3,7 @@
 <head>
 <meta name="layout" content="main" />
 
-<title>Welcome to Sormar</title>
+<title>Welcome to softwarefabric</title>
 
 </head>
 <body>

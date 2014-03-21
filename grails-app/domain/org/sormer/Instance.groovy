@@ -5,6 +5,7 @@ class Instance {
     static belongsTo = Provider
     static mapWith = "mongo"
     
+    
     static constraints = {
     }
 }

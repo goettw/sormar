@@ -13,7 +13,7 @@
 		<div class="navbar navbar-default" role="navigation">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<a href="${createLink(uri: '/')}" class="navbar-brand" style="padding: 2px"><img src="${resource(dir: 'images', file: 'sormar_logo.png')}"
+					<a href="${createLink(uri: '/')}" class="navbar-brand" style="padding: 2px"><img src="${resource(dir: 'images', file: 'logo-mid.png')}"
 						alt="Sormer" width="80%" /></a>
 						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
               <span class="sr-only">Toggle navigation</span>
@@ -29,7 +29,7 @@
 							</g:link></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li class="active"><g:link controller="product" >Products</g:link></li>
+						<li><g:link controller="product">Products</g:link></li>
 						<li><g:link controller="asset">Assets</g:link></li>
 						<li><g:link controller="expert">Experts</g:link></li>
 					</ul>
@@ -39,7 +39,7 @@
 	</div>
 	<div id="list-product" class="container" role="main">
 		<div  class="panel panel-primary">
-		<div class="panel-heading">
+		<div class="panel-heading" style="background-color:#146b35">
 			<g:message code="default.list.label" args="[entityName]" />
 		</div>
 	
@@ -61,7 +61,7 @@
 						
 						<td><g:link action="show" id="${productInstance.id}">${fieldValue(bean: productInstance, field: "name")}</g:link></td>
 					
-						<td>${fieldValue(bean: productInstance, field: "productManager.username")}</td>
+						<td>${fieldValue(bean: productInstance, field: "productManager")}</td>
 					
 						<td>${fieldValue(bean: productInstance, field: "url")}</td>
 					
