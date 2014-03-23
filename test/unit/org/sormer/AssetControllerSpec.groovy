@@ -2,6 +2,8 @@ package org.sormer
 
 
 
+import org.sormar.Asset;
+
 import grails.test.mixin.*
 import spock.lang.*
 

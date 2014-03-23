@@ -3,6 +3,9 @@ package org.sormer
 
 
 import static org.springframework.http.HttpStatus.*
+
+import org.sormar.Product;
+
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)

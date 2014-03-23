@@ -1,4 +1,4 @@
-<%@ page import="org.sormer.Asset" %>
+<%@ page import="org.sormar.Asset" %>
 
 
 
@@ -11,12 +11,30 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: assetInstance, field: 'link', 'error')} ">
-	<label for="link">
-		<g:message code="asset.link.label" default="Link" />
+<div class="fieldcontain ${hasErrors(bean: assetInstance, field: 'source', 'error')} ">
+	<label for="source">
+		<g:message code="asset.source.label" default="Source" />
 		
 	</label>
-	<g:field type="url" name="link" value="${assetInstance?.link}"class="form-control"/>
+	<g:field type="url" name="source" value="${assetInstance?.source}"class="form-control"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: assetInstance, field: 'deployable', 'error')} ">
+	<label for="deployable">
+		<g:message code="asset.deployable.label" default="Deployable" />
+		
+	</label>
+	<g:field type="url" name="deployable" value="${assetInstance?.deployable}"class="form-control"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: assetInstance, field: 'documentation', 'error')} ">
+	<label for="documentation">
+		<g:message code="asset.documentation.label" default="Documentation" />
+		
+	</label>
+	<g:field type="url" name="documentation" value="${assetInstance?.documentation}"class="form-control"/>
 
 </div>
 

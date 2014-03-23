@@ -9,7 +9,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<r:require modules="bootstrap" />
+<asset:stylesheet href="bootstrap-custom.css" />
+<asset:javascript src="bootstrap-custom.js" />
 <title><g:layoutTitle default="Grails" /></title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="${resource(dir: 'images', file: 'favicon.ico')}" type="image/x-icon">
@@ -26,28 +27,27 @@
 		<div class="row">
 			<div class="col-md-12" align="center">
 				<div id="sormerLogo" role="banner">
-					<a href="http://www.sormar.com"><img src="${resource(dir: 'images', file: 'software-fabric.png')}" alt="Sormer" /></a>
-				<p>Everything you need to create great software!</p>
+					<a href="http://www.sormar.com"><img src="${resource(dir: 'images', file: 'sormar.png')}" alt="Sormer" /></a>
+					<p>All you need to build great software!</p>
 				</div>
 			</div>
 		</div>
 
-		<div class="row" >
+		<div class="row">
 			<div class="col-md-12" align="center">
 				<g:layoutBody />
 			</div>
-			<div class="row" style="height:280px">
-		</div>
+			<div class="row" style="height: 280px"></div>
 			<div class="row">
 				<div class="col-md-12" align="center">
 					<b>So</b>ftware <b>R</b>esource <b>Ma</b>nage<b>r</b>
-					
-							
-					</div>
+
+
 				</div>
 			</div>
-			<r:layoutResources />
 		</div>
+		<r:layoutResources />
+	</div>
 	</div>
 </body>
 </html>

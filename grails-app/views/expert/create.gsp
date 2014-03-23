@@ -1,56 +1,37 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta name="layout" content="scaffoldBase">
-		<g:set var="entityName" value="${message(code: 'expert.label', default: 'Expert')}" />
-		<title><g:message code="default.create.label" args="[entityName]" /></title>
-	</head>
-	<body>
-		<div class="container">
-		<div class="navbar navbar-default" role="navigation">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<a href="${createLink(uri: '/')}" class="navbar-brand" style="padding: 2px"><img src="${resource(dir: 'images', file: 'logo-mid.png')}"
-						alt="Sormer" width="80%" /></a>
-						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-				</div>
-				<div class="navbar-collapse collapse">
-			
-					<ul class="nav navbar-nav navbar-right">
-						<li><g:link controller="product">Products</g:link></li>
-						<li><g:link controller="asset">Assets</g:link></li>
-						<li><g:link controller="expert">Experts</g:link></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
+<head>
+<meta name="layout" content="baseLayout">
+<g:set var="entityName" value="${message(code: 'expert.label', default: 'Expert')}" />
+<title><g:message code="default.create.label" args="[entityName]" /></title>
+</head>
+<body>
 
-		<div id="create-expert" class="container" role="main">
-			<h1><g:message code="default.create.label" args="[entityName]" /></h1>
-			<g:if test="${flash.message}">
+
+	<div id="create-expert" class="panel panel-primary" role="main">
+		<div class="panel-heading">
+			<g:message code="default.create.label" args="[entityName]" />
+		</div>
+<div class="panel-body">
+		<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
-			</g:if>
-			<g:hasErrors bean="${expertInstance}">
+		</g:if>
+		<g:hasErrors bean="${expertInstance}">
 			<ul class="errors" role="alert">
 				<g:eachError bean="${expertInstance}" var="error">
-				<li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
+					<li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}" /></li>
 				</g:eachError>
 			</ul>
-			</g:hasErrors>
-			<g:form url="[resource:expertInstance, action:'save']" >
-				<fieldset class="form">
-					<g:render template="form"/>
-				</fieldset>
-				<fieldset class="buttons">
-					<g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
-				</fieldset>
-			</g:form>
+		</g:hasErrors>
+		<g:form url="[resource:expertInstance, action:'save']" >
+			<fieldset class="form">
+				<g:render template="form" />
+			</fieldset>
+			<fieldset class="buttons">
+				<g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
+			</fieldset>
+		</g:form>
 		</div>
-	</body>
+	</div>
+</body>
 </html>
