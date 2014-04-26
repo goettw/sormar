@@ -35,5 +35,8 @@
 			</g:form>
 		</div>
 		</div>
+			 <theme:zone name="sidebarLeft">
+	<g:render template="sidebarLeftEdit" ></g:render>            
+        </theme:zone>
 	</body>
 </html>

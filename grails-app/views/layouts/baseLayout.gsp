@@ -28,23 +28,35 @@
 
 </head>
 <body>
-
+	
 
 	<div class="container">
 
+		<div class="row">
+			<div class="col-md-12">
+				<g:render template="/shared/login" />
+			</div>
+		</div>
 		<div class="row">
 			<div class="col-md-12">
 				<g:render template="/shared/navigation" />
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-2">
-				<g:render template="dashboard"></g:render>
+			<div class="col-md-3">
+
+				<theme:ifZoneContent name="sidebarLeft">
+					<theme:layoutZone name="sidebarLeft" />
+				</theme:ifZoneContent>
+
 			</div>
-			<div class="col-md-8">
+			<div class="col-md-9">
 				<g:layoutBody />
 			</div>
-			<div class="col-md-2"></div>
+			<div class="col-md-1"></div>
+
+
+
 		</div>
 
 

@@ -128,3 +128,39 @@ log4j = {
            'org.hibernate'
       //     'net.sf.ehcache.hibernate'
 }
+
+
+// Added by the Spring Security Core plugin:
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'org.sormar.User'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'org.sormar.UserRole'
+grails.plugin.springsecurity.authority.className = 'org.sormar.Role'
+
+grails.plugin.springsecurity.controllerAnnotations.staticRules = [
+	'/':                              ['permitAll'],
+	'/home':                         ['permitAll'],
+	'/home.gsp':                     ['permitAll'],
+	'/**/js/**':                      ['permitAll'],
+	'/**/js/**':                      ['permitAll'],
+	'/asset/**':                     ['permitAll'],
+	'/product/**':                     ['permitAll'],
+	'/expert/**':                     ['permitAll'],
+	'/assets/**':                     ['permitAll'],
+	'/**/images/**':                  ['permitAll'],
+	'/**/favicon.ico':                ['permitAll'],
+	'/register/*':		  	['permitAll'],
+	'/user/*':		  	['ROLE_ADMIN']
+]
+
+grails.plugin.springsecurity.logout.postOnly = false
+grails {
+    mail {
+      host = "smtp.gmail.com"
+      port = 465
+      username = "wolfgang.goette@gmail.com"
+      password = "vuihgwdn!1!2"
+      props = ["mail.smtp.auth":"true",
+	       "mail.smtp.socketFactory.port":"465",
+	       "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
+	       "mail.smtp.socketFactory.fallback":"false"]
+    }
+ }

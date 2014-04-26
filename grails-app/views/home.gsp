@@ -11,7 +11,6 @@
 
 
 
-
 	<section class="home-grid jeans-collection-grid">
 		<ul class="product-grid list-unstyled">
 			<li class="product col-sm-4 cat-product">

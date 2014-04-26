@@ -42,6 +42,7 @@ grails.project.dependency.resolution = {
         mavenCentral()
 
         mavenRepo "http://maven.springframework.org/milestone/"
+	mavenRepo 'http://repo.spring.io/milestone'
 
         // uncomment these (or add new ones) to enable remote dependency resolution from public Maven repositories
         //mavenRepo "http://repository.codehaus.org"
@@ -81,10 +82,12 @@ grails.project.dependency.resolution = {
         //runtime ":zipped-resources:1.0.1"
         //runtime ":cached-resources:1.1"
         //runtime ":yui-minify-resources:0.1.5"
-
+	compile ":spring-security-core:2.0-RC2"
+	compile ":spring-security-ui:1.0-RC1"
         // An alternative to the default resources plugin is the asset-pipeline plugin
         compile ":asset-pipeline:1.6.1"
-
+	compile ":platform-ui:1.0.RC7"
+	compile ":mail:1.0.4"
         // Uncomment these to enable additional asset-pipeline capabilities
         //compile ":sass-asset-pipeline:1.5.5"
         //compile ":less-asset-pipeline:1.5.3"

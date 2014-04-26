@@ -64,5 +64,9 @@
 		</div>
 
 	</div>
+			 <theme:zone name="sidebarLeft">
+	<g:render template="sidebarLeftShow" ></g:render>            
+        </theme:zone>
+
 </body>
 </html>

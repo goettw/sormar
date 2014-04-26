@@ -4,11 +4,11 @@ class Expert {
     String username
     String firstName
     String lastName
-
+    
     static mapWith = "mongo"
     static constraints = { username unique:true  }
     def encodeAsHTML () {
-	return firstName + " " + lastName
+	return firstName + " " + lastName + " " + username
     }
     def String toString (){
 	return encodeAsHTML()

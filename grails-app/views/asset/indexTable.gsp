@@ -22,7 +22,7 @@
 				<thead>
 					<tr>
 						
-						<g:sortableColumn property="name" title="${message(code: 'asset.name.label', default: 'Name')}" />
+						<th><g:message code="asset.identifier.label" default="Identifier" /></th>
 					
 						<g:sortableColumn property="source" title="${message(code: 'asset.source.label', default: 'Source')}" />
 					
@@ -38,7 +38,7 @@
 					<g:each in="${assetInstanceList}" status="i" var="assetInstance">
 						<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 							
-						<td><g:link action="show" id="${assetInstance.id}">${fieldValue(bean: assetInstance, field: "name")}</g:link></td>
+						<td><g:link action="show" id="${assetInstance.id}">${fieldValue(bean: assetInstance, field: "identifier")}</g:link></td>
 					
 						<td>${fieldValue(bean: assetInstance, field: "source")}</td>
 					

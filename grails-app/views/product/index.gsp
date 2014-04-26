@@ -44,5 +44,8 @@
 			</div>
 		</div>
 	</div>
+		 <theme:zone name="sidebarLeft">
+	<g:render template="sidebarLeftIndex" ></g:render>            
+        </theme:zone>
 </body>
 </html>

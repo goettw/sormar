@@ -27,10 +27,14 @@ environments {
 
     }
     test {
-	//	dataSource {
-	//	    dbCreate = "update"
-	//	    url = "jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
-	//	}
+	grails {
+	    mongo {
+		host = "localhost"
+		port = 27017
+
+		databaseName = "test"
+	    }
+	}
     }
     production {
 	grails {

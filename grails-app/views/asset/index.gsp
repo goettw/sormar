@@ -12,7 +12,7 @@
 </head>
 <body>
 	
-
+<g:render template="actionBar" />
 
 	<div id="list-asset"  role="main">
 		<div class="panel panel-primary">
@@ -44,5 +44,8 @@
 			</div>
 		</div>
 	</div>
+		 <theme:zone name="sidebarLeft">
+	<g:render template="sidebarLeftIndex" ></g:render>            
+        </theme:zone>
 </body>
 </html>

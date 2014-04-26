@@ -5,8 +5,8 @@ package org.sormar
 import grails.test.mixin.*
 import spock.lang.*
 
-@TestFor(AssetUsesRelationController)
-@Mock(AssetUsesRelation)
+@TestFor(AssetRelationController)
+@Mock(AssetRelation)
 class AssetUsesRelationControllerSpec extends Specification {
 
     def populateValidParams(params) {
@@ -37,7 +37,7 @@ class AssetUsesRelationControllerSpec extends Specification {
 
         when:"The save action is executed with an invalid instance"
             request.contentType = FORM_CONTENT_TYPE
-            def assetUsesRelation = new AssetUsesRelation()
+            def assetUsesRelation = new AssetRelation()
             assetUsesRelation.validate()
             controller.save(assetUsesRelation)
 
@@ -48,14 +48,14 @@ class AssetUsesRelationControllerSpec extends Specification {
         when:"The save action is executed with a valid instance"
             response.reset()
             populateValidParams(params)
-            assetUsesRelation = new AssetUsesRelation(params)
+            assetUsesRelation = new AssetRelation(params)
 
             controller.save(assetUsesRelation)
 
         then:"A redirect is issued to the show action"
             response.redirectedUrl == '/assetUsesRelation/show/1'
             controller.flash.message != null
-            AssetUsesRelation.count() == 1
+            AssetRelation.count() == 1
     }
 
     void "Test that the show action returns the correct model"() {
@@ -67,7 +67,7 @@ class AssetUsesRelationControllerSpec extends Specification {
 
         when:"A domain instance is passed to the show action"
             populateValidParams(params)
-            def assetUsesRelation = new AssetUsesRelation(params)
+            def assetUsesRelation = new AssetRelation(params)
             controller.show(assetUsesRelation)
 
         then:"A model is populated containing the domain instance"
@@ -83,7 +83,7 @@ class AssetUsesRelationControllerSpec extends Specification {
 
         when:"A domain instance is passed to the edit action"
             populateValidParams(params)
-            def assetUsesRelation = new AssetUsesRelation(params)
+            def assetUsesRelation = new AssetRelation(params)
             controller.edit(assetUsesRelation)
 
         then:"A model is populated containing the domain instance"
@@ -102,7 +102,7 @@ class AssetUsesRelationControllerSpec extends Specification {
 
         when:"An invalid domain instance is passed to the update action"
             response.reset()
-            def assetUsesRelation = new AssetUsesRelation()
+            def assetUsesRelation = new AssetRelation()
             assetUsesRelation.validate()
             controller.update(assetUsesRelation)
 
@@ -113,7 +113,7 @@ class AssetUsesRelationControllerSpec extends Specification {
         when:"A valid domain instance is passed to the update action"
             response.reset()
             populateValidParams(params)
-            assetUsesRelation = new AssetUsesRelation(params).save(flush: true)
+            assetUsesRelation = new AssetRelation(params).save(flush: true)
             controller.update(assetUsesRelation)
 
         then:"A redirect is issues to the show action"
@@ -133,16 +133,16 @@ class AssetUsesRelationControllerSpec extends Specification {
         when:"A domain instance is created"
             response.reset()
             populateValidParams(params)
-            def assetUsesRelation = new AssetUsesRelation(params).save(flush: true)
+            def assetUsesRelation = new AssetRelation(params).save(flush: true)
 
         then:"It exists"
-            AssetUsesRelation.count() == 1
+            AssetRelation.count() == 1
 
         when:"The domain instance is passed to the delete action"
             controller.delete(assetUsesRelation)
 
         then:"The instance is deleted"
-            AssetUsesRelation.count() == 0
+            AssetRelation.count() == 0
             response.redirectedUrl == '/assetUsesRelation/index'
             flash.message != null
     }

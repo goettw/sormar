@@ -1,16 +1,29 @@
 <%@ page import="org.sormar.Asset" %>
 
 
+<fieldset class="embedded"><legend><g:message code="asset.identifier.label" default="Identifier" /></legend>
 
-<div class="fieldcontain ${hasErrors(bean: assetInstance, field: 'name', 'error')} ">
-	<label for="name">
-		<g:message code="asset.name.label" default="Name" />
+
+<div class="fieldcontain ${hasErrors(bean: assetInstance, field: 'identifier.name', 'error')} ">
+	<label for="identifier.name">
+		<g:message code="asset.identifier.name.label" default="Name" />
 		
 	</label>
-	<g:textField name="name" value="${assetInstance?.name}"class="form-control"/>
+	<g:textField name="identifier.name" value="${assetInstance?.identifier?.name}"class="form-control"/>
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: assetInstance, field: 'identifier.ver', 'error')} ">
+	<label for="identifier.ver">
+		<g:message code="asset.identifier.ver.label" default="Ver" />
+		
+	</label>
+	<g:textField name="identifier.ver" value="${assetInstance?.identifier?.ver}"class="form-control"/>
+
+</div>
+
+
+</fieldset>
 <div class="fieldcontain ${hasErrors(bean: assetInstance, field: 'source', 'error')} ">
 	<label for="source">
 		<g:message code="asset.source.label" default="Source" />
