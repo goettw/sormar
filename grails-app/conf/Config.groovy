@@ -164,3 +164,32 @@ grails {
 	       "mail.smtp.socketFactory.fallback":"false"]
     }
  }
+
+grammer.asset.entities = [
+	"Data Entity",
+	"Application Component",
+	"Technology Component",
+	"Platform Service"
+    ]
+
+grammer.asset.relations = [
+    "Data Entity" : [
+	"Application Component" : [
+	    "Is encapsulated within" : "Encapsulates", 
+	    "Accessed by": "Accesses"
+	   ]
+	],
+    "Application Component" : [
+	"Technology Component" : [
+	    "Is realized through" : "Provides platform for"
+	 ]
+    ],
+    "Technology Component" : [
+	"Platform Service" : [
+	    "Implements" : "Is realized through"
+	 ]
+    ]
+
+]
+
+    

@@ -23,13 +23,11 @@
 				</g:eachError>
 			</ul>
 		</g:hasErrors>
-		<g:form url="[resource:assetInstance, action:'save']" >
-			<fieldset class="form">
+		<g:form url="[resource:assetInstance, action:'save']" class="form-horizontal" role="form">
 				<g:render template="form" />
-			</fieldset>
-			<fieldset class="buttons">
-				<g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
-			</fieldset>
+
+				<g:submitButton name="create" class="btn btn-default" value="${message(code: 'default.button.create.label', default: 'Create')}" />
+
 		</g:form>
 		</div>
 	</div>

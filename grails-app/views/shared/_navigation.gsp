@@ -10,15 +10,18 @@
 			</button>
 		</div>
 		<div class="navbar-collapse collapse">
-
-			<ul class="nav navbar-nav navbar-right">
-				
-			</ul>
-
-			<ul class="nav navbar-nav navbar-right">
-			
+			<ul class="nav navbar-nav ">	
 				<g:render template="subNavigation"></g:render>
-
+			</ul>
+			<ul class="nav navbar-text navbar-right">
+				<sec:ifLoggedIn>
+					Logged in as <sec:username /> (<g:link controller='logout' >Logout</g:link>)
+				
+				</sec:ifLoggedIn> 
+				<sec:ifNotLoggedIn>
+					<g:link controller='login' action='auth'>Login Here</g:link>
+				</sec:ifNotLoggedIn>
+				
 			</ul>
 		</div>
 	</div>

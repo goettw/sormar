@@ -3,15 +3,16 @@
 <html>
 <head>
 <meta name="layout" content="baseLayout">
-<g:set var="entityName" value="${message(code: 'assetRelation.label', default: 'AssetRelationComment')}" />
-<title><g:message code="default.edit.label" args="[entityName]" /></title>
+
+<g:set var="entityName" value="${assetRelationCommentInstance.assetRelation.source.name + " " + assetRelationCommentInstance.assetRelation.source.ver}" />
+<title><g:message code="default.edit.assetRelation.label" args="[entityName]" /></title>
 </head>
 <body>
 
 
 	<div id="create-assetRelation" class="panel panel-primary" role="main">
 		<div class="panel-heading">
-			<g:message code="default.edit.label" args="[entityName]" />
+			<g:message code="default.edit.assetRelation.label" args="[entityName]" />
 		</div>
 		<div class="panel-body">
 			<g:if test="${flash.message}">
@@ -27,13 +28,11 @@
 				</ul>
 			</g:hasErrors>
 			
-			<g:form url="[resource:assetRelationVommentInstance, action:'saveComment']" method="PUT">
-				<fieldset class="form">
-					<g:render template="formComment" />
-				</fieldset>
-				<fieldset class="buttons">
-					<g:actionSubmit class="save"  action="saveComment" value="${message(code: 'default.button.update.label', default: 'Update')}" />
-				</fieldset>
+			<g:form url="[resource:assetRelationVommentInstance, action:'saveComment']" method="PUT" role="form" class="form-horizontal">
+				<g:render template="formComment" />
+				<span style="float: right">
+					<g:actionSubmit class="btn btn-default" class="save"  action="saveComment" value="${message(code: 'default.button.update.label', default: 'Update')}" />
+				</span>
 			</g:form>
 		</div>
 	</div>

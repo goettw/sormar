@@ -1,5 +1,6 @@
 import javax.management.relation.Role;
 
+import org.codehaus.groovy.grails.commons.GrailsApplication;
 import org.sormar.AssetIdentifier;
 import org.sormar.AssetRelation;
 
@@ -25,6 +26,10 @@ class BootStrap {
 
 	userRole = new org.sormar.Role(authority:"ROLE_ADMIN").save(flush:true)
 	new org.sormar.UserRole(user: user, role: userRole).save(flush: true, insert: true);
+	
+	
+	
+	
     }
     def destroy = {
     }

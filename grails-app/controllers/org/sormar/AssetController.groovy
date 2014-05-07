@@ -3,13 +3,23 @@ package org.sormar
 
 
 import static org.springframework.http.HttpStatus.*
+
+import java.util.regex.Pattern;
+
+import org.junit.After;
+
+import grails.converters.JSON
 import grails.transaction.Transactional
+
+import com.mongodb.BasicDBObject
+import com.mongodb.DBCollection
 
 @Transactional(readOnly = true)
 class AssetController {
     AssetRelationService assetRelationService
+    AssetGrammarService assetGrammarService
     ExpertService expertService
-    
+
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
@@ -20,22 +30,53 @@ class AssetController {
     def searchAsset(String searchPattern, Integer max) {
 	System.out.println("searchPattern=" + searchPattern)
 	params.max = Math.min(max ?: 10, 100)
-	
-	def query = Asset.where {
-	    identifier.name =~ searchPattern
-	} 
-	List assetList = query.list()
-	
-	
-	
+
+	//def query = Asset.where { identifier.name =~ searchPattern }
+	List assetList = Asset.findAll {
+	    like(identifier.name,searchPattern+"%")
+	}
+
+
+
 	respond assetList, model:[assetInstanceCount: assetList.size()],view:"index"
     }
+
+    def searchAssetForTextbox = {
+	String searchPattern =  params.remove('term')
+	BasicDBObject q = new BasicDBObject("identifier.name",Pattern.compile(searchPattern+"*"))
+	
+
+	List assetList = getCollection().distinct("identifier.name", q)
+	System.out.println (assetList)
+	render assetList as JSON
+    }
+    def mongo
+    
+    def getAssetVersions = {
+	String searchPattern = params.remove('term')
+	List assetList = getCollection().distinct("identifier.ver",new BasicDBObject ("identifier.name",searchPattern)); 
+	render assetList as JSON
+    }
+    DBCollection coll = null
+    def DBCollection getCollection () {
+	def dsname = grailsApplication.config.grails.mongo.databaseName
+	System.out.println "dsname" + dsname
+	
+	if (coll != null)
+		return coll
+	def db =  mongo.getDB(dsname)
+	coll = db.getCollection("asset");
+	return coll
+    }
+    
     def show(Asset assetInstance) {
-	System.out.println("!!!assetInstance = " + assetInstance)
+
+
+	System.out.println assetGrammarService.entityTypes(grailsApplication)
+	System.out.println assetGrammarService.validTargetTypes(grailsApplication,"Data Entity")
+	System.out.println assetGrammarService.relationName(grailsApplication, "Data Entity", "Application Component")
+
 	List assetRelations = assetRelationService.findAssetRelations(assetInstance.identifier.name,assetInstance.identifier.ver)
-	for (asset in assetRelations) {
-	    System.out.println "ASSSET"+asset
-	}
 	respond assetInstance,model:[assetRelations: assetRelations]
     }
     def showByIdentifier (AssetIdentifier assetIdentifier) {
@@ -48,7 +89,9 @@ class AssetController {
 	redirect (action:"show",id:asset.id)
     }
     def create() {
-	respond new Asset(params)
+	Asset asset = new Asset(params)
+	asset.constraints.type.inList = assetGrammarService.entityTypes(grailsApplication)
+	respond asset
     }
 
     @Transactional
@@ -87,11 +130,11 @@ class AssetController {
 	assetRelationCommentInstance.assetRelation = new AssetRelation()
 	assetRelationCommentInstance.assetRelation.source = assetInstance.identifier
 	assetRelationCommentInstance.assetRelation.target = assetInstance.identifier
-	
+
 	respond assetRelationCommentInstance,view:'editComment',model:["assetId":assetInstance.id]
     }
     def saveComment() {
-	
+
 	AssetRelationComment assetRelationCommentInstance = new AssetRelationComment (params["assetRelationCommentInstance"])
 	if (assetRelationInstance == null) {
 	    notFound()
@@ -105,12 +148,12 @@ class AssetController {
 
 	// TODO: expert has to be removed as soon as security is implemented
 	Expert expert = expertService.findOrCreate("wgoette")
-assetRelationService.commentAssetRelation(assetRelationCommentInstance.assetRelation, true, expert, assetRelationCommentInstance.comment)
+	assetRelationService.commentAssetRelation(assetRelationCommentInstance.assetRelation, true, expert, assetRelationCommentInstance.comment)
 	String assetId = params.asset.id.toString()
 	System.out.println ("validate:"+assetRelationCommentInstance.validate())
-		assetRelationCommentInstance.save()
+	assetRelationCommentInstance.save()
 	System.out.println ("saved"+assetRelationCommentInstance)
-	redirect (action:"show", id:assetId) 
+	redirect (action:"show", id:assetId)
     }
 
     @Transactional
@@ -146,9 +189,9 @@ assetRelationService.commentAssetRelation(assetRelationCommentInstance.assetRela
 	    notFound()
 	    return
 	}
-System.out.println "assetInstance="+assetInstance
+	System.out.println "assetInstance="+assetInstance
 	try {
-	    	assetInstance.delete flush:true
+	    assetInstance.delete flush:true
 	} catch (Exception e) {
 	    e.printStackTrace()
 	}

@@ -30,8 +30,8 @@
 
 				<g:if test="${assetInstance?.identifier}">
 					<div class="form-group">
-						<label class="col-sm-2 control-label"><g:message code="asset.identifier.label" default="Identifier" /></label>
-						<div class="col-sm-8">
+						<label class="col-sm-3 control-label"><g:message code="asset.identifier.label" default="Identifier" /></label>
+						<div class="col-sm-9">
 
 							<p class="form-control-static" aria-labelledby="identifier-label">
 								<g:fieldValue bean="${assetInstance}" field="identifier" />
@@ -44,8 +44,8 @@
 
 				<g:if test="${assetInstance?.source}">
 					<div class="form-group">
-						<label class="col-sm-2 control-label"><g:message code="asset.source.label" default="Source" /></label>
-						<div class="col-sm-8">
+						<label class="col-sm-3 control-label"><g:message code="asset.source.label" default="Source" /></label>
+						<div class="col-sm-9">
 
 							<p class="form-control-static" aria-labelledby="source-label">
 								<a href='<g:fieldValue bean="${assetInstance}" field="source"/>' target='blank'><g:fieldValue bean="${assetInstance}" field="source" /></a>
@@ -58,8 +58,8 @@
 
 				<g:if test="${assetInstance?.deployable}">
 					<div class="form-group">
-						<label class="col-sm-2 control-label"><g:message code="asset.deployable.label" default="Deployable" /></label>
-						<div class="col-sm-8">
+						<label class="col-sm-3 control-label"><g:message code="asset.deployable.label" default="Deployable" /></label>
+						<div class="col-sm-9">
 
 							<p class="form-control-static" aria-labelledby="deployable-label">
 								<a href='<g:fieldValue bean="${assetInstance}" field="deployable"/>' target='blank'><g:fieldValue bean="${assetInstance}" field="deployable" /></a>
@@ -72,8 +72,8 @@
 
 				<g:if test="${assetInstance?.documentation}">
 					<div class="form-group">
-						<label class="col-sm-2 control-label"><g:message code="asset.documentation.label" default="Documentation" /></label>
-						<div class="col-sm-8">
+						<label class="col-sm-3 control-label"><g:message code="asset.documentation.label" default="Documentation" /></label>
+						<div class="col-sm-9">
 
 							<p class="form-control-static" aria-labelledby="documentation-label">
 								<a href='<g:fieldValue bean="${assetInstance}" field="documentation"/>' target='blank'><g:fieldValue bean="${assetInstance}" field="documentation" /></a>
@@ -86,8 +86,8 @@
 
 				<g:if test="${assetInstance?.type}">
 					<div class="form-group">
-						<label class="col-sm-2 control-label"><g:message code="asset.type.label" default="Type" /></label>
-						<div class="col-sm-8">
+						<label class="col-sm-3 control-label"><g:message code="asset.type.label" default="Type" /></label>
+						<div class="col-sm-9">
 
 							<p class="form-control-static" aria-labelledby="type-label">
 								<g:fieldValue bean="${assetInstance}" field="type" />
@@ -98,8 +98,8 @@
 				</g:if>
 				<g:if test="${assetInstance?.dateCreated}">
 					<div class="form-group">
-						<label class="col-sm-2 control-label"><g:message code="default.dateCreated.label" default="date created" /></label>
-						<div class="col-sm-8">
+						<label class="col-sm-3 control-label"><g:message code="default.dateCreated.label" default="date created" /></label>
+						<div class="col-sm-9">
 
 							<p class="form-control-static" aria-labelledby="type-label">
 								<g:fieldValue bean="${assetInstance}" field="dateCreated" />
@@ -110,8 +110,8 @@
 				</g:if>
 				<g:if test="${assetInstance?.lastUpdated}">
 					<div class="form-group">
-						<label class="col-sm-2 control-label"><g:message code="default.lastUpdated.label" default="Last updated" /></label>
-						<div class="col-sm-8">
+						<label class="col-sm-3 control-label"><g:message code="default.lastUpdated.label" default="Last updated" /></label>
+						<div class="col-sm-9">
 
 							<p class="form-control-static" aria-labelledby="type-label">
 								<g:fieldValue bean="${assetInstance}" field="lastUpdated" />
@@ -143,6 +143,8 @@
 	<theme:zone name="sidebarLeft">
 		<g:render template="sidebarLeftShow"></g:render>
 	</theme:zone>
-
+<theme:zone name="sidebarRight">
+		<g:render template="sidebarRightShow"></g:render>
+	</theme:zone>
 </body>
 </html>

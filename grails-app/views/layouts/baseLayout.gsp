@@ -23,6 +23,8 @@
 
 <g:layoutHead />
 <g:javascript library="application" />
+<g:javascript library="jquery" />
+<r:require module="jquery-ui"/>
 
 <r:layoutResources />
 
@@ -32,11 +34,7 @@
 
 	<div class="container">
 
-		<div class="row">
-			<div class="col-md-12">
-				<g:render template="/shared/login" />
-			</div>
-		</div>
+		
 		<div class="row">
 			<div class="col-md-12">
 				<g:render template="/shared/navigation" />
@@ -50,11 +48,16 @@
 				</theme:ifZoneContent>
 
 			</div>
-			<div class="col-md-9">
+			<div class="col-md-6">
 				<g:layoutBody />
 			</div>
-			<div class="col-md-1"></div>
+			<div class="col-md-3">
 
+				<theme:ifZoneContent name="sidebarRight">
+					<theme:layoutZone name="sidebarRight" />
+				</theme:ifZoneContent>
+
+			</div>
 
 
 		</div>

@@ -24,7 +24,7 @@ class Asset {
 	deployable nullable:true,url:true
 	documentation nullable:true,url:true
 	 
-	type inList:["framework", "service","language",""] 
+	type inList:["Platform Service", "Technology Component","Application Compnent","Data Entity"] 
     }
     
 }
